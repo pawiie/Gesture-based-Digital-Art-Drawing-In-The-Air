@@ -6,8 +6,7 @@ Created on Wed Apr 12 22:35:33 2021
 @author: pawansinghchauhan
 """
 
-""" It is the main file for tracking the object
-"""
+""" It is the main file for tracking the object """
 
 
 # import the necessary packages
