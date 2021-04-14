@@ -1,9 +1,21 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Apr 12 22:35:33 2021
+
+@author: pawansinghchauhan
+"""
+
 """  this module is for returning the hsv value range of the object selected by user
      use the image from the saved images and then after the detection delete the image
 """
 
-     
-        
+
+import logger
+
+# creating object of Log class
+log=logger.Log()
+
 class ColourFinder:
     def __init__(self):
         #list of images
@@ -18,11 +30,13 @@ class ColourFinder:
     def HSVRange(self):
         
         return self.HSV_min, self.HSV_max
+        
     
         try:
             self.getImages()
         except:
-            print("Error: Unable to get the list of saved images\n")
+            log.addLog('error','Unable to get the list of saved images')
+            
         
         try:
             for images in self.img:
@@ -31,5 +45,6 @@ class ColourFinder:
             return self.HSV_min, self.HSV_max
         
         except:
-            print("Error: Unable to get the HSV Range of the images\n")
+            log.addLog('error','Unable to get the HSV Range of the images')
+            
             
