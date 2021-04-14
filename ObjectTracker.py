@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Wed Apr 12 22:35:33 2021
+Created on Wed Apr 2021 12 22:35:33 
 
-@author: pawansinghchauhan
+@author: PS Chauhan
 """
 
 """ It is the main file for tracking the object """
@@ -18,6 +16,12 @@ import cv2
 import imutils
 import time
 import ColourFinder
+import logger
+
+
+# creating object of the log class in logger
+OT_log = logger.Log()
+
 
 #getting the HSV range of colour of the object
 CF = ColourFinder.ColourFinder()
@@ -89,4 +93,6 @@ while True:
 vs.stop()
 
 # close all windows
+
 cv2.destroyAllWindows()
+

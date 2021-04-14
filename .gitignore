@@ -1,3 +1,5 @@
 .DS_store
 __pycache__
-.log
+log_file.log
+logger.pyc
+.vscode
