@@ -6,7 +6,7 @@ Created on Wed Apr 14 22:35:33 2021
 @author: pawansinghchauhan
 """
 
-#configuring the logger
+# configuring the logger
 
 import logging
 
