@@ -13,7 +13,7 @@ Created on Wed Apr 12 22:35:33 2021
 
 import logger
 
-# creating object of Log class
+# creating the object of Log class
 log=logger.Log()
 
 class ColourFinder:
