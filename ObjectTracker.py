@@ -20,7 +20,7 @@ import logger
 
 #object of Log class
 OT_log = logger.Log()
-=======
+
 
 # creating object of the log class in logger
 OT_log = logger.Log()
