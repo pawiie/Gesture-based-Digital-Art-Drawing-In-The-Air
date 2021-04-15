@@ -17,7 +17,7 @@ import time
 import ColourFinder
 import logger
 
-<<<<<<< HEAD
+
 #object of Log class
 OT_log = logger.Log()
 =======
