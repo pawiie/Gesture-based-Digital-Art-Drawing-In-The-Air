@@ -93,4 +93,6 @@ while True:
 vs.stop()
 
 # close all windows
+
 cv2.destroyAllWindows()
+
