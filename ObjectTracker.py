@@ -18,12 +18,10 @@ import ColourFinder
 import logger
 
 
-#object of Log class
-OT_log = logger.Log()
 
 
 # creating object of the log class in logger
-OT_log = logger.Log()
+OT_log=logger.Log()
 
 
 #getting the HSV range of colour of the object
