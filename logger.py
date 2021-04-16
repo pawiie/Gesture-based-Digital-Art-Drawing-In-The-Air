@@ -11,8 +11,6 @@ which can be further used for debugging purposes
 
 import logging
 
-
-
 class Log:
 
     def __init__(self):
