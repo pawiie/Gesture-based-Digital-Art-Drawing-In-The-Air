@@ -16,6 +16,7 @@ import imutils
 import time
 import ColourFinder
 import logger
+import fps
 
 
 
@@ -39,10 +40,23 @@ vs = VideoStream(src=0).start()
 # allow the camera or video file to warm up i.e., for camera to open and adjust
 time.sleep(2.0)
 
+#double ended queue to store the coordinates (insert and pop operation takes O(1) in deque in python)
 pts=deque()
+
+# object of fps class
+_fps=fps.FPS()
+
+#starting the fps counter
+_fps.start()
+
 #loop till we get the feed from camera
 while True:
+
     frame = vs.read()
+
+    #update the fps
+    _fps.update()
+    
     
     # to counter the mirror effect 
     frame = cv2.flip(frame,1)
@@ -126,11 +140,18 @@ while True:
 
     key = cv2.waitKey(1) & 0xFF
 	# if the 'q' key is pressed, stop the loop
+    #change this according to the UI of the drawing board
     if key == ord("q"):
         OT_log.addLog('warning','closing the camera feed')
         break
 
 
+#stop the fps counter
+_fps.end()
+
+#output fps achieved
+
+print("FPS achieved: ", _fps.fps())
 #stop the camera video stream
 vs.stop()
 
