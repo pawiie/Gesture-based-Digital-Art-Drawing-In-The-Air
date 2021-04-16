@@ -22,7 +22,7 @@ class Log:
     
     def addLog(self,level,msg):
         #only msg with warning and above are allowed
-        if level =='warning' :
+        if level == 'warning' :
             self.logger.warning(msg)
         elif level == 'error':
             self.logger.error(msg)
