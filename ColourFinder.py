@@ -12,7 +12,7 @@ Created on Wed Apr 12 2021 22:35:33
 import logger
 
 # creating the object of Log class
-CF_log=logger.Log()
+CF_log = logger.Log()
 
 class ColourFinder:
     def __init__(self):
