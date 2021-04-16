@@ -4,7 +4,10 @@ Created on Thu Apr 15 2021 16:09:08
 @author: PS Chauhan
 """
 
-# this module is to find the fps of the VideoStream 
+"""
+This module is to find the frames per second of the VideoStream
+utilised while reading and processing the frames
+""" 
 
 import datetime
 

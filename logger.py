@@ -4,7 +4,10 @@ Created on Wed Apr 14 2021 22:35:33
 @author: PS Chauhan
 """
 
-# configuring the logger
+"""
+This module implements the logger in order keep the log of some events
+which can be further used for debugging purposes    
+"""
 
 import logging
 

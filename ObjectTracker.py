@@ -4,7 +4,10 @@ Created on Wed Apr 2021 12 22:35:33
 @author: PS Chauhan
 """
 
-""" It is the main file for tracking the object """
+"""
+It is the main file for tracking the object and
+finding the coordinates of the movements
+"""
 
 # import the necessary packages
 from collections import deque
