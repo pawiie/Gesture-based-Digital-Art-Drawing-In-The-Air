@@ -11,9 +11,9 @@ finding the coordinates of the movements
 
 # import the necessary packages
 from collections import deque
+from imutils.video import VideoStream
 import cv2
-import resize
-from videostream import VideoStream
+import imutils
 import time
 import ColourFinder
 import logger
@@ -36,12 +36,12 @@ LowerHSV =(29, 86, 6)
 UpperHSV =(64, 255, 255)
 
 #currently not using any multi threading
-vs = VideoStream().start()
+vs = VideoStream(src=0).start()
 
 # allow the camera or video file to warm up i.e., for camera to open and adjust
 time.sleep(2.0)
 
-#double ended queue to store the coordinates (insert and pop operation takes O(1) in deque in python)
+#double ended queue to store the coordinates (insert and pop operation takes O(1) )
 pts=deque()
 
 # object of fps class
@@ -68,7 +68,7 @@ while True:
         break
 
     # resize the frame, blur it, and convert it to the HSV color space
-    frame = resize.resizeImage(frame,width=600)
+    frame = imutils.resize(frame,width=600)
     blurred = cv2.GaussianBlur(frame,(11,11),0)
     hsv = cv2.cvtColor(blurred,cv2.COLOR_BGR2HSV)
 
@@ -84,8 +84,7 @@ while True:
 	
     cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 
-    # since opencv >= v3 has been used
-    cnts = cnts[1]
+    cnts = imutils.grab_contours(cnts)
     center = None
     
 	# only proceed if at least one contour was found
@@ -153,13 +152,12 @@ while True:
 _fps.end()
 
 #output fps achieved
-
 print("FPS achieved: ", _fps.fps())
-#stop the camera video stream
+
+#stop the camera video stream thread
 vs.stop()
 
 # close all windows
-
 cv2.destroyAllWindows()
 
 

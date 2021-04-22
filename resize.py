@@ -4,7 +4,7 @@ Created on Sat Apr 17 2021 03:29:45
 @author: PS Chauhan
 """
 
-# module to resize the image
+# module to resize the image/frame
 
 import cv2
 
