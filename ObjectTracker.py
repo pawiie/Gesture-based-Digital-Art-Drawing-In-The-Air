@@ -32,8 +32,18 @@ OT_log=logger.Log()
 # LowerHSV,UpperHSV = CF.HSVRange()
 
 
-LowerHSV =(29, 86, 6)
-UpperHSV =(64, 255, 255)
+# yellowish  green colour
+#LowerHSV =(29, 86, 6)
+#UpperHSV =(64, 255, 255)
+
+#for red
+#LowerHSV =(0, 70, 50)
+#UpperHSV =(10, 255, 255)
+
+#green
+LowerHSV =(20, 80, 100)
+UpperHSV =(50, 255, 255)
+
 
 #currently not using any multi threading
 vs = VideoStream(src=0).start()
@@ -76,6 +86,10 @@ while True:
 	# a series of dilations and erosions to remove any small blobs left in the mask
 	
     mask = cv2.inRange(hsv, LowerHSV, UpperHSV)
+    
+    #for red
+    #mask = cv2.inRange(hsv, (170, 70, 50), (180, 255, 255))
+    #
     mask = cv2.erode(mask, None, iterations=2)
     mask = cv2.dilate(mask, None, iterations=2)
 
@@ -101,11 +115,11 @@ while True:
         
         # only proceed if the radius meets a minimum size
         # not needed 
-        # if radius > 0:
+        if radius > 0:
 		# 	# draw the circle and centroid on the frame,
 		# 	# then update the list of tracked points
-        #     cv2.circle(frame, (int(x), int(y)), int(radius),(0, 255, 255), 2)
-        #     cv2.circle(frame, center, 5, (0, 0, 255), -1)
+             cv2.circle(frame, (int(x), int(y)), int(radius),(0, 255, 255), 2)
+             cv2.circle(frame, center, 5, (0, 0, 255), -1)
 
     	# update the points queue
     
