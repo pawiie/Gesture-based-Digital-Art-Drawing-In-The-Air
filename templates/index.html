@@ -6,129 +6,142 @@ Created on Thu Apr 20 2021 16:10:29
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/style.css">
     <title>Drawing In Air</title>
 </head>
+
 <body>
     <div class="main">
-    <!-- header  -->
-   <div class="header">
-       <!-- <div class="identity">
+        <!-- header  -->
+        <div class="header">
+            <!-- <div class="identity">
            <div class="logo">
                <img id="logo" src="{{ url_for('static', filename= 'img/logo.png') }}" alt="logo">
            </div>
            <div class="name">
 
            </div>
-
        </div> -->
 
+       
+            <!-- colour of the brush -->
+            <div class="brush_colour">
+                <table>
+                    <tr>
+                        <td><img src="/static/img/black.jpeg" alt="black"></td>
+                        <td><img src="/static/img/blue.png" alt="blue"></td>
+                        <td><img src="/static/img/red.jpeg" alt="red"></td>
+                        <td><img src="/static/img/green.png" alt="green"></td>
+                        <td><img src="/static/img/yellow.jpeg" alt="yellow"></td>
+                    </tr>
+                </table>
+                <p id="pen-colour-text">Colour</p>
+            </div>
 
-       <!-- colour of the brush -->
-       <div class="brush_colour">
-           <table>
-               <tr>
-                   <td><img src="/static/img/black.jpeg" alt="black"></td>
-                   <td><img src="/static/img/blue.png" alt="blue"></td>
-                   <td><img src="/static/img/red.jpeg" alt="red"></td>
-                   <td><img src="/static/img/green.png" alt="green"></td>
-                   <td><img src="/static/img/yellow.jpeg" alt="yellow"></td >
-               </tr>
-           </table>
-           <p id="pen-colour-text">Colour</p>
-       </div>
+            <!-- brush size -->
 
-       <!-- brush size -->
+            <div class="brush_size">
+                <table>
+                    <tr>
+                        <td><img src="/static/img/thin.png" alt="thin"></td>
+                        <td><img src="/static/img/thick.png" alt="thick"></td>
+                        <td><img src="/static/img/thickest.png" alt="thickest"></td>
 
-       <div class="brush_size">
-        <table>
-            <tr>
-                <td><img src="/static/img/thin.png" alt="thin"></td>
-                <td><img src="/static/img/thick.png" alt="thick"></td>
-                <td><img src="/static/img/thickest.png" alt="thickest"></td>
-                
-            </tr>
-        </table>
-        <p id="pen-size-text">Size</p>
+                    </tr>
+                </table>
+                <p id="pen-size-text">Size</p>
 
-       </div>
+            </div>
 
 
-       <!-- pen -->
+            <!-- pen -->
 
-       <div class="pen">
-        <img src="/static/img/pen.png" alt="pen">
-        <p id="pen-text">Draw</p>
-       </div>
+            <div class="pen">
+                <img src="/static/img/pen.png" alt="pen">
+                <p id="pen-text">Draw</p>
+            </div>
 
-       <!-- highlighter -->
-       <div class="highlighter">
-           <img src="/static/img/highlighter.png" alt="highlighter">
-           <p id="highlighter-text">Highlight</p>
-       </div>
+            <!-- highlighter -->
+            <div class="highlighter">
+                <img src="/static/img/highlighter.png" alt="highlighter">
+                <p id="highlighter-text">Highlight</p>
+            </div>
 
-       <!-- insert text -->
+            <!-- insert text -->
 
-       <div class="insert-text">
-        <img src="/static/img/a.png" alt="text">
-        <p id="a-text">Text</p>
-       </div>
+            <div class="insert-text">
+                <img src="/static/img/a.png" alt="text">
+                <p id="a-text">Text</p>
+            </div>
 
-       <!-- insert picture -->
+            <!-- insert picture -->
 
-       <div class="insert-picture">
-        <img src="/static/img/insert-picture.png" alt="picture">
-        <p id="picture-text">Picture</p>
-       </div>
+            <div class="insert-picture">
+                <img src="/static/img/insert-picture.png" alt="picture">
+                <p id="picture-text">Picture</p>
+            </div>
 
-        <!-- undo -->
+            <!-- undo -->
 
-        <div class="undo">
-            <img src="/static/img/undo.png" alt="undo">
-            <p id="undo-text">Undo</p>
+            <div class="undo">
+                <img src="/static/img/undo.png" alt="undo">
+                <p id="undo-text">Undo</p>
+            </div>
+
+            <!-- redo -->
+
+            <div class="redo">
+                <img src="/static/img/redo.png" alt="redo">
+                <p id="redo-text">Redo</p>
+            </div>
+
+            <!-- erase -->
+
+            <div class="eraser">
+                <img src="/static/img/eraser.png" alt="eraser">
+                <p id="eraser-text">Erase</p>
+            </div>
+
+            <!-- erase -->
+
+            <div class="download">
+                <img src="/static/img/download.png" alt="download">
+                <p id="download-text">Save</p>
+            </div>
+
+
         </div>
 
-        <!-- redo -->
+        <!-- board -->
+        <div class="board">
+           
+            <p id="result"> result </p>
 
-       <div class="redo">
-        <img src="/static/img/redo.png" alt="redo">
-        <p id="redo-text">Redo</p>
-       </div>
+        </div>
 
-       <!-- erase -->
+        <!-- footer -->
+        <div class="footer">
+            <div class="callibrate">
+                <!-- <img id="call-normal" src="/static/img/target.png" alt="callibrate"> -->
+                <img id="call-onhover" src="/static/img/target_click.png" alt="callibrate">
+                <p id="calli-text">Calibrate</p>
+            </div>
+        </div>
 
-       <div class="eraser">
-        <img src="/static/img/eraser.png" alt="eraser">
-        <p id="eraser-text">Erase</p>
-       </div>
+    </div>
 
-       <!-- erase -->
+    <script>
+        var source = new EventSource("http://127.0.0.1:5000/coordinates");
+        
+        source.onmessage = function (event) {
 
-       <div class="download">
-        <img src="/static/img/download.png" alt="download">
-        <p id="download-text">Save</p>
-       </div>
+            document.getElementById("result").innerHTML += event.data + "<br>";
+        };
 
-
-   </div>
-
-   <!-- board -->
-   <div class="board">
-       <p>{{data}}</p>
-
-   </div>
-
-   <!-- footer -->
-   <div class="footer">
-       <div class="callibrate">
-           <!-- <img id="call-normal" src="/static/img/target.png" alt="callibrate"> -->
-           <img id="call-onhover"  src="/static/img/target_click.png" alt="callibrate">
-           <p id="calli-text">Calibrate</p>
-       </div>
-   </div>
-
-   </div>
+    </script>
 </body>
+
 </html>
